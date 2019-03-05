@@ -1,0 +1,147 @@
+
+//1
+
+var courses = [].slice.call(document.querySelectorAll(".coursesList .card"));
+
+
+
+var resultado = courses.forEach((item) => {
+
+
+
+    const hours = item.querySelector('.mainTag').innerText;
+
+
+
+    const link = item.querySelector('h1 a');
+
+
+
+    var lista = lista += `- [${link.innerText} (${hours})](${link.href})`;
+
+
+
+})
+
+
+
+console.log(lista);
+
+
+
+//2
+
+var lineas = [].slice.call(document.querySelectorAll(".list__lineas__element img"));
+
+
+
+lineas = lineas.map(item => item.className);
+
+
+
+
+var stateList = [].slice.call( document.querySelectorAll('span[class*=state]'));
+
+
+
+stateList = stateList.map(item => item.className);
+
+
+
+var resultado= stateList.forEach(function(element) {
+
+
+
+    if (element === "state--green state—alert") {
+
+
+
+        console.log("funciona correctamente con retrasos");
+
+
+
+    } else if (element === "state—green"){
+
+
+
+        console.log("funciona correctamente");
+
+
+
+    } else {
+
+
+
+        console.log("no funciona correctamente");}
+
+});
+
+
+
+//2
+
+var lineas = [].slice.call(document.querySelectorAll(".list__lineas__element img"));
+
+
+
+lineas = lineas.map(item => item.className);
+
+lineas.forEach((el) => {
+
+
+
+    if(lineas) {
+
+        if(lineas.contains('state—alert')) {
+            var text= text += `Circulación interrumpida en ${lineas}`;
+        } else {
+            var text = text += `Circulación normal en ${lineName}.\n`;
+        }
+    }
+});
+console.log(text);
+
+
+
+let linesList = Array.from(document.querySelectorAll('.list__otraslineas > li'));
+let text = "Estado de la red de Metro\n";
+linesList.forEach((el) => {
+    let lineImg = el.querySelector('a > img');
+    let lineName = "";
+    if (lineImg) {
+        lineName = (lineImg.className).toLocaleUpperCase().replace(/-/g, " ");
+    }
+    let lineSpan = el.querySelector('span');
+    if(lineSpan) {
+        if(lineSpan.classList.contains('has-tip')) {
+            let tooltipId = lineSpan.getAttribute("aria-describedby");
+            let tootltipText = document.getElementById(`${tooltipId}`).innerText;
+            text += `Circulación interrumpida en ${lineName}. ${tootltipText}.\n`;
+        } else {
+            text += `Circulación normal en ${lineName}.\n`;
+        }
+    }
+});
+console.log(text);
+
+//3
+
+var a = [].slice.call( document.getElementsByTagName('img'));
+a = a.map(item => item.src = "http://placekitten.com/g/200/300");
+
+//3
+
+Array.prototype.map.call(document.querySelectorAll('img'), function(el){ el.src="http://placekitten.com/g/200/300" } )
+
+//4
+var cards = document.querySelectorAll('.microCard');
+var teachers = Array.prototype.map.call(cards, (item) => {
+
+    var anchor= item.querySelectorAll('a');
+    return {
+        image: item.querySelector('img').src,
+        name: item.querySelector('h3').textContent,
+        description: item.querySelector('p').textContent,
+        links: Array.prototype.map.call(anchor, (item) => item.href)
+    };
+});
